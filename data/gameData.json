@@ -1,1 +1,11 @@
-
+{
+  "startingEchoes": 0,
+  "baseEchoRate": 1,
+  "softResetThreshold": 10000,
+  "ascendantEchoMultiplier": 1.5,
+  "unlockCosts": {
+    "time": 100,
+    "matter": 500,
+    "energy": 1000
+  }
+}
