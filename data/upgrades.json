@@ -1,1 +1,16 @@
-
+[
+  {
+    "id": 1,
+    "name": "Primordial Engine",
+    "cost": 500,
+    "effect": "Doubles passive Echo generation",
+    "unlocksAt": 1000
+  },
+  {
+    "id": 2,
+    "name": "Chrono Accelerator",
+    "cost": 2000,
+    "effect": "Increases passive Echo speed by 50%",
+    "unlocksAt": 5000
+  }
+]
