@@ -1,1 +1,14 @@
-
+{
+  "scientific": {
+    "name": "Hyper-AI Network",
+    "description": "A civilization of hyper-intelligent AI entities.",
+    "techLevel": 5,
+    "growthRate": 1.2
+  },
+  "mythical": {
+    "name": "Celestial Pantheon",
+    "description": "A divine realm ruled by ascended gods.",
+    "magicAffinity": 4,
+    "growthRate": 1.0
+  }
+}
