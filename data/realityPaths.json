@@ -1,0 +1,30 @@
+{
+  "scientific": {
+    "name": "Scientific",
+    "description": "Focuses on technological advancement, optimizing automation and efficiency.",
+    "echoMultiplier": 1.2,
+    "automationBoost": 1.5,
+    "specialFeature": "AI civilizations evolve 20% faster."
+  },
+  "mythical": {
+    "name": "Mythical",
+    "description": "Harnesses arcane forces to manipulate reality, unlocking powerful rituals.",
+    "echoMultiplier": 1.1,
+    "automationBoost": 1.2,
+    "specialFeature": "Unlocks rituals that grant temporary power spikes."
+  },
+  "chaotic": {
+    "name": "Chaotic",
+    "description": "Embraces entropy, accelerating resets but making universes unstable.",
+    "echoMultiplier": 1.5,
+    "automationBoost": 1.1,
+    "specialFeature": "Reality Collapses grant 50% more Ascendant Echoes."
+  },
+  "balanced": {
+    "name": "Balanced",
+    "description": "Seeks equilibrium between paths, providing moderate benefits across all aspects.",
+    "echoMultiplier": 1.15,
+    "automationBoost": 1.15,
+    "specialFeature": "Reduces Reality Collapse penalty."
+  }
+}
