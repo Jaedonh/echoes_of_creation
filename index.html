@@ -9,9 +9,30 @@
 <body>
     <div id="game">
         <h1>Echoes of Creation</h1>
+        
+        <!-- Echo Generation -->
         <button id="echoButton">Generate Echo</button>
         <p>Echoes: <span id="echoCount">0</span></p>
-        <button id="collapseButton">Trigger Reality Collapse</button>
+
+        <!-- Reality Path Selection -->
+        <div id="pathSelection">
+            <h2>Choose Your Reality Path</h2>
+            <button onclick="selectPath('scientific')">Scientific</button>
+            <button onclick="selectPath('mythical')">Mythical</button>
+            <button onclick="selectPath('chaotic')">Chaotic</button>
+            <button onclick="selectPath('balanced')">Balanced</button>
+        </div>
+        <p>Current Path: <span id="currentPath">None</span></p>
+
+        <!-- Upgrades & Automation -->
+        <h2>Upgrades</h2>
+        <button onclick="purchaseUpgrade(1)">Buy Primordial Engine (500 Echoes)</button>
+        <button onclick="purchaseUpgrade(2)">Buy Chrono Accelerator (2000 Echoes)</button>
+        <p>Passive Echo Rate: <span id="echoRate">1</span>/s</p>
+
+        <!-- Reality Collapse (Prestige) -->
+        <h2>Reality Collapse</h2>
+        <button id="collapseButton" onclick="collapseReality()">Trigger Reality Collapse</button>
         <p>Ascendant Echoes: <span id="ascendantCount">0</span></p>
     </div>
 
