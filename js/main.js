@@ -8,15 +8,18 @@ let ascendantEchoes = 0;
 function generateEcho() {
     echoes += echoRate * echoMultiplier;
     updateUI();
+    checkConcepts();  // Check unlock conditions
 }
 
-// Passive Echo Generation (Only Enabled After Unlocking Time)
+// Passive Echo Generation Loop
 function passiveEchoGeneration() {
     if (unlockedConcepts.time) {  
         echoes += (echoRate * echoMultiplier);
         updateUI();
+        checkConcepts();  // Ensure unlocks happen over time
     }
 }
+
 
 // Start passive generation loop
 setInterval(passiveEchoGeneration, 1000);
