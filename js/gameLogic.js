@@ -1,7 +1,11 @@
 let currentPath = null;
 let realityPaths = {};
 let unlockedUpgrades = [];
-let upgrades = {};
+let unlockedConcepts = {
+    time: false,
+    matter: false,
+    energy: false
+};
 
 // Load Reality Paths from JSON
 fetch("data/realityPaths.json")
@@ -18,6 +22,32 @@ fetch("data/upgrades.json")
         upgrades = data;
     });
 
+// Unlock Concepts Progressively
+function checkConcepts() {
+    if (echoes >= 100 && !unlockedConcepts.time) {
+        unlockedConcepts.time = true;
+        echoRate = 1;  // Enables passive Echo generation
+        document.getElementById("conceptsSection").style.display = "block";
+        document.getElementById("conceptTime").style.display = "block";
+        alert("You unlocked Time! Echoes now generate passively.");
+    }
+
+    if (echoes >= 500 && !unlockedConcepts.matter) {
+        unlockedConcepts.matter = true;
+        document.getElementById("conceptMatter").style.display = "block";
+        document.getElementById("pathSelection").style.display = "block";  // Reveal Reality Paths
+        alert("You unlocked Matter! Reality Paths are now available.");
+    }
+
+    if (echoes >= 1000 && !unlockedConcepts.energy) {
+        unlockedConcepts.energy = true;
+        document.getElementById("conceptEnergy").style.display = "block";
+        document.getElementById("upgradesSection").style.display = "block";  // Reveal Upgrades
+        alert("You unlocked Energy! Advanced upgrades are now available.");
+    }
+}
+
+// Reality Path Selection
 function selectPath(path) {
     if (currentPath !== null) {
         alert("You have already chosen a Reality Path. You can only change it after a Reality Collapse.");
@@ -28,53 +58,35 @@ function selectPath(path) {
         currentPath = path;
         let pathData = realityPaths[path];
 
-        // Apply Path Bonuses
         echoMultiplier = pathData.echoMultiplier;
         automationBoost = pathData.automationBoost;
 
         alert(`You have chosen the ${pathData.name} path: ${pathData.description}`);
         updatePathUI();
+
+        // Disable path buttons after selection
+        document.getElementById("scientificPath").disabled = true;
+        document.getElementById("mythicalPath").disabled = true;
+        document.getElementById("chaoticPath").disabled = true;
+        document.getElementById("balancedPath").disabled = true;
     }
 }
 
-function purchaseUpgrade(upgradeId) {
-    if (unlockedUpgrades.includes(upgradeId)) {
-        alert("Upgrade already purchased!");
-        return;
-    }
-
-    let upgrade = upgrades.find(u => u.id === upgradeId);
-    if (upgrade && echoes >= upgrade.cost) {
-        echoes -= upgrade.cost;
-        unlockedUpgrades.push(upgradeId);
-        applyUpgradeEffects(upgrade);
-        alert(`Purchased: ${upgrade.name}`);
-    } else {
-        alert("Not enough Echoes to buy this upgrade.");
-    }
-}
-
-function applyUpgradeEffects(upgrade) {
-    if (upgrade.effect === "doubleEchoRate") {
-        echoRate *= 2;
-    } else if (upgrade.effect === "increasePassive") {
-        echoRate += 5;
-    }
-    updateUI();
-}
-
+// Reality Collapse (Resets & Prestige)
 function collapseReality() {
     if (echoes >= 10_000) {
-        ascendantEchoes += Math.floor(echoes / 10_000);  // Prestige currency
+        ascendantEchoes += Math.floor(echoes / 10_000);
         echoes = 0;
         echoRate = 1;
-        currentPath = null; // Allow new path selection
-        unlockedUpgrades = []; // Reset upgrades
+        currentPath = null;
+        unlockedUpgrades = [];
+        unlockedConcepts = { time: false, matter: false, energy: false };
+        
+        document.getElementById("pathSelection").style.display = "none";  // Hide Paths
+        document.getElementById("upgradesSection").style.display = "none";  // Hide Upgrades
+        document.getElementById("conceptsSection").style.display = "none";  // Hide Concepts
+        
         alert(`Reality Collapsed! You now have ${ascendantEchoes} Ascendant Echoes.`);
         updatePathUI();
     }
-}
-
-function updatePathUI() {
-    document.getElementById("currentPath").innerText = currentPath ? realityPaths[currentPath].name : "None";
 }
