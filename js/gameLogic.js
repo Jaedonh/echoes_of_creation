@@ -35,19 +35,18 @@ function checkConcepts() {
     if (echoes >= 500 && !unlockedConcepts.matter) {
         unlockedConcepts.matter = true;
         document.getElementById("conceptMatter").style.display = "block";
-        document.getElementById("pathSelection").style.display = "block";  // Reveal Reality Paths
-        document.getElementById("currentPathContainer").style.display = "block";  // Show Path Status
+        document.getElementById("pathSelection").style.display = "block";  
+        document.getElementById("currentPathContainer").style.display = "block";
         alert("You unlocked Matter! Reality Paths are now available.");
     }
 
     if (echoes >= 1000 && !unlockedConcepts.energy) {
         unlockedConcepts.energy = true;
         document.getElementById("conceptEnergy").style.display = "block";
-        document.getElementById("upgradesSection").style.display = "block";  // Reveal Upgrades
+        document.getElementById("upgradesSection").style.display = "block";  
         alert("You unlocked Energy! Advanced upgrades are now available.");
     }
 }
-
 
 // Reality Path Selection
 function selectPath(path) {
