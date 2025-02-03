@@ -36,6 +36,7 @@ function checkConcepts() {
         unlockedConcepts.matter = true;
         document.getElementById("conceptMatter").style.display = "block";
         document.getElementById("pathSelection").style.display = "block";  // Reveal Reality Paths
+        document.getElementById("currentPathContainer").style.display = "block";  // Show Path Status
         alert("You unlocked Matter! Reality Paths are now available.");
     }
 
@@ -46,6 +47,7 @@ function checkConcepts() {
         alert("You unlocked Energy! Advanced upgrades are now available.");
     }
 }
+
 
 // Reality Path Selection
 function selectPath(path) {
@@ -82,9 +84,11 @@ function collapseReality() {
         unlockedUpgrades = [];
         unlockedConcepts = { time: false, matter: false, energy: false };
         
-        document.getElementById("pathSelection").style.display = "none";  // Hide Paths
-        document.getElementById("upgradesSection").style.display = "none";  // Hide Upgrades
-        document.getElementById("conceptsSection").style.display = "none";  // Hide Concepts
+        // Hide paths, upgrades, and concepts again
+        document.getElementById("pathSelection").style.display = "none";
+        document.getElementById("currentPathContainer").style.display = "none";
+        document.getElementById("upgradesSection").style.display = "none";
+        document.getElementById("conceptsSection").style.display = "none";
         
         alert(`Reality Collapsed! You now have ${ascendantEchoes} Ascendant Echoes.`);
         updatePathUI();
