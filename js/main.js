@@ -4,14 +4,18 @@ let echoMultiplier = 1;  // Modified by Reality Paths
 let automationBoost = 1;  // Automation speed multiplier
 let ascendantEchoes = 0;
 
+// Generate Echoes by Clicking
 function generateEcho() {
     echoes += echoRate * echoMultiplier;
     updateUI();
 }
 
+// Passive Echo Generation (Only Enabled After Unlocking Time)
 function passiveEchoGeneration() {
-    echoes += (echoRate * echoMultiplier);
-    updateUI();
+    if (unlockedConcepts.time) {  
+        echoes += (echoRate * echoMultiplier);
+        updateUI();
+    }
 }
 
 // Start passive generation loop
