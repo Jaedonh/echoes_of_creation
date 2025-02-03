@@ -65,13 +65,17 @@ function selectPath(path) {
         alert(`You have chosen the ${pathData.name} path: ${pathData.description}`);
         updatePathUI();
 
-        // Disable path buttons after selection
+        // Disable path buttons
         document.getElementById("scientificPath").disabled = true;
         document.getElementById("mythicalPath").disabled = true;
         document.getElementById("chaoticPath").disabled = true;
         document.getElementById("balancedPath").disabled = true;
+
+        // Reveal Reality Collapse ONLY after choosing a path
+        document.getElementById("collapseSection").style.display = "block";
     }
 }
+
 
 // Reality Collapse (Resets & Prestige)
 function collapseReality() {
