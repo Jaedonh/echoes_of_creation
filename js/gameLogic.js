@@ -24,11 +24,14 @@ fetch("data/upgrades.json")
 
 // Unlock Concepts Progressively
 function checkConcepts() {
+    console.log(`Checking concepts... Current Echoes: ${echoes}`);
+
     if (echoes >= 100 && !unlockedConcepts.time) {
         unlockedConcepts.time = true;
-        echoRate = 1;  // Enables passive Echo generation
+        echoRate = 1;
         document.getElementById("conceptsSection").style.display = "block";
         document.getElementById("conceptTime").style.display = "block";
+        console.log("Unlocked: Time");
         alert("You unlocked Time! Echoes now generate passively.");
     }
 
@@ -37,6 +40,7 @@ function checkConcepts() {
         document.getElementById("conceptMatter").style.display = "block";
         document.getElementById("pathSelection").style.display = "block";  
         document.getElementById("currentPathContainer").style.display = "block";
+        console.log("Unlocked: Matter (Reality Paths available)");
         alert("You unlocked Matter! Reality Paths are now available.");
     }
 
@@ -44,9 +48,11 @@ function checkConcepts() {
         unlockedConcepts.energy = true;
         document.getElementById("conceptEnergy").style.display = "block";
         document.getElementById("upgradesSection").style.display = "block";  
+        console.log("Unlocked: Energy (Upgrades available)");
         alert("You unlocked Energy! Advanced upgrades are now available.");
     }
 }
+
 
 // Reality Path Selection
 function selectPath(path) {
