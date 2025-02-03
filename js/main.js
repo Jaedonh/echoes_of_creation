@@ -20,6 +20,7 @@ function passiveEchoGeneration() {
 
 // Start passive generation loop
 setInterval(passiveEchoGeneration, 1000);
+setInterval(checkConcepts, 1000);
 
 // Button Event Listeners
 document.getElementById("echoButton").addEventListener("click", generateEcho);
