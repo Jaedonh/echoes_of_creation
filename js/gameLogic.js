@@ -102,8 +102,13 @@ function collapseReality() {
 }
 
 function hardReset() {
+    console.log("Hard Reset triggered.");  // Debugging check
     let confirmReset = confirm("Are you sure you want to reset ALL progress? This cannot be undone.");
+    
     if (confirmReset) {
+        console.log("Reset confirmed.");
+        
+        // Reset all variables
         echoes = 0;
         echoRate = 1;
         ascendantEchoes = 0;
@@ -111,7 +116,7 @@ function hardReset() {
         unlockedUpgrades = [];
         unlockedConcepts = { time: false, matter: false, energy: false };
 
-        // Hide everything
+        // Hide all UI elements
         document.getElementById("pathSelection").style.display = "none";
         document.getElementById("currentPathContainer").style.display = "none";
         document.getElementById("upgradesSection").style.display = "none";
@@ -121,6 +126,7 @@ function hardReset() {
         // Clear saved progress
         localStorage.clear();
         
+        console.log("Game data cleared.");
         alert("Game has been fully reset.");
         updateUI();
     }
