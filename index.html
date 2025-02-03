@@ -14,21 +14,31 @@
         <button id="echoButton">Generate Echo</button>
         <p>Echoes: <span id="echoCount">0</span></p>
 
-        <!-- Reality Path Selection -->
-        <div id="pathSelection">
+        <!-- Unlockable Concepts Section (Hidden Initially) -->
+        <div id="conceptsSection" style="display: none;">
+            <h2>Discovered Concepts</h2>
+            <p id="conceptTime" style="display: none;">✔ Time: Passive Echo Generation Unlocked</p>
+            <p id="conceptMatter" style="display: none;">✔ Matter: Enables Reality Paths</p>
+            <p id="conceptEnergy" style="display: none;">✔ Energy: Unlocks Advanced Upgrades</p>
+        </div>
+
+        <!-- Reality Path Selection (Hidden Until Matter is Unlocked) -->
+        <div id="pathSelection" style="display: none;">
             <h2>Choose Your Reality Path</h2>
-            <button onclick="selectPath('scientific')">Scientific</button>
-            <button onclick="selectPath('mythical')">Mythical</button>
-            <button onclick="selectPath('chaotic')">Chaotic</button>
-            <button onclick="selectPath('balanced')">Balanced</button>
+            <button id="scientificPath" onclick="selectPath('scientific')">Scientific</button>
+            <button id="mythicalPath" onclick="selectPath('mythical')">Mythical</button>
+            <button id="chaoticPath" onclick="selectPath('chaotic')">Chaotic</button>
+            <button id="balancedPath" onclick="selectPath('balanced')">Balanced</button>
         </div>
         <p>Current Path: <span id="currentPath">None</span></p>
 
-        <!-- Upgrades & Automation -->
-        <h2>Upgrades</h2>
-        <button onclick="purchaseUpgrade(1)">Buy Primordial Engine (500 Echoes)</button>
-        <button onclick="purchaseUpgrade(2)">Buy Chrono Accelerator (2000 Echoes)</button>
-        <p>Passive Echo Rate: <span id="echoRate">1</span>/s</p>
+        <!-- Upgrades & Automation (Hidden Until Energy is Unlocked) -->
+        <div id="upgradesSection" style="display: none;">
+            <h2>Upgrades</h2>
+            <button id="upgrade1" onclick="purchaseUpgrade(1)" disabled>Buy Primordial Engine (500 Echoes)</button>
+            <button id="upgrade2" onclick="purchaseUpgrade(2)" disabled>Buy Chrono Accelerator (2000 Echoes)</button>
+            <p>Passive Echo Rate: <span id="echoRate">1</span>/s</p>
+        </div>
 
         <!-- Reality Collapse (Prestige) -->
         <h2>Reality Collapse</h2>
