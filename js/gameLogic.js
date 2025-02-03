@@ -100,3 +100,28 @@ function collapseReality() {
         alert("You must reach 10,000 Echoes and choose a Reality Path before collapsing reality.");
     }
 }
+
+function hardReset() {
+    let confirmReset = confirm("Are you sure you want to reset ALL progress? This cannot be undone.");
+    if (confirmReset) {
+        echoes = 0;
+        echoRate = 1;
+        ascendantEchoes = 0;
+        currentPath = null;
+        unlockedUpgrades = [];
+        unlockedConcepts = { time: false, matter: false, energy: false };
+
+        // Hide everything
+        document.getElementById("pathSelection").style.display = "none";
+        document.getElementById("currentPathContainer").style.display = "none";
+        document.getElementById("upgradesSection").style.display = "none";
+        document.getElementById("conceptsSection").style.display = "none";
+        document.getElementById("collapseSection").style.display = "none";
+
+        // Clear saved progress
+        localStorage.clear();
+        
+        alert("Game has been fully reset.");
+        updateUI();
+    }
+}
