@@ -137,3 +137,12 @@ function hardReset() {
         updateUI();
     }
 }
+
+
+function updatePathUI() {
+    if (currentPath) {
+        document.getElementById("currentPath").innerText = realityPaths[currentPath].name;
+    } else {
+        document.getElementById("currentPath").innerText = "None";
+    }
+}
