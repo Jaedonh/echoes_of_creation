@@ -25,3 +25,5 @@ setInterval(checkConcepts, 1000);
 // Button Event Listeners
 document.getElementById("echoButton").addEventListener("click", generateEcho);
 document.getElementById("collapseButton").addEventListener("click", collapseReality);
+document.getElementById("resetButton").addEventListener("click", hardReset);
+
