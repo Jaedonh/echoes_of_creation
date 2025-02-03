@@ -79,7 +79,7 @@ function selectPath(path) {
 
 // Reality Collapse (Resets & Prestige)
 function collapseReality() {
-    if (echoes >= 10_000) {
+    if (echoes >= 10_000 && currentPath !== null) {
         ascendantEchoes += Math.floor(echoes / 10_000);
         echoes = 0;
         echoRate = 1;
@@ -92,8 +92,11 @@ function collapseReality() {
         document.getElementById("currentPathContainer").style.display = "none";
         document.getElementById("upgradesSection").style.display = "none";
         document.getElementById("conceptsSection").style.display = "none";
+        document.getElementById("collapseSection").style.display = "none";  // Hide again after reset
         
         alert(`Reality Collapsed! You now have ${ascendantEchoes} Ascendant Echoes.`);
         updatePathUI();
+    } else {
+        alert("You must reach 10,000 Echoes and choose a Reality Path before collapsing reality.");
     }
 }
