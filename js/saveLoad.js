@@ -3,7 +3,9 @@ function saveGame() {
         echoes: echoes,
         echoRate: echoRate,
         ascendantEchoes: ascendantEchoes,
-        unlockedConcepts: unlockedConcepts
+        currentPath: currentPath,
+        unlockedConcepts: unlockedConcepts,
+        unlockedUpgrades: unlockedUpgrades
     };
     localStorage.setItem("echoesSave", JSON.stringify(gameData));
 }
@@ -14,7 +16,9 @@ function loadGame() {
         echoes = savedData.echoes;
         echoRate = savedData.echoRate;
         ascendantEchoes = savedData.ascendantEchoes;
+        currentPath = savedData.currentPath;
         unlockedConcepts = savedData.unlockedConcepts;
+        unlockedUpgrades = savedData.unlockedUpgrades;
         updateUI();
     }
 }
